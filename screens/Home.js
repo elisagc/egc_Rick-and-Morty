@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
       fetch("https://rickandmortyapi.com/api/character")
         .then((response) => response.json())
         .then((data) =>
-          dispatch({ type: "SAVE_CHARACTERS", data: data.results })
+          dispatch({ type: "SET_CHARACTERS", data: data.results })
         );
   }, []);
 

@@ -1,15 +1,17 @@
 import React from "react";
 import { StyleSheet, ImageBackground, TouchableOpacity } from "react-native";
+import { useDispatch } from "react-redux";
 
 const Card = ({ character, children, navigation }) => {
+  const dispatch = useDispatch();
   const { id, image } = character;
 
+  const handleSelectedImage = () => {
+    dispatch({ type: "SET_CHARACTER", id: id });
+    navigation.navigate("Detail");
+  };
   return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate("Detail", { character, id });
-      }}
-    >
+    <TouchableOpacity onPress={handleSelectedImage}>
       <ImageBackground
         style={styles.container}
         source={{

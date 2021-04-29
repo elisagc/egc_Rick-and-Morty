@@ -9,14 +9,6 @@ const Detail = () => {
   const character = useSelector((state) => state.selectedCharacter);
   const { name, image, species, origin, gender, status, episode } = character;
 
-  if (!character) {
-    return (
-      <View style={styles.container}>
-        <Title>Loading...</Title>
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
       <Title>{name}</Title>
